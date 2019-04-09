@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/ms_mansaje"
+        android:layout_width="123dp"
+        android:layout_height="64dp"
+        android:text="name"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="282dp" />
+
+
+
+</android.support.constraint.ConstraintLayout>
