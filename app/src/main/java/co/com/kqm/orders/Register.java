@@ -2,14 +2,13 @@ package co.com.kqm.orders;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -28,7 +27,7 @@ public class Register extends AppCompatActivity {
 
         final EditText nameUser = findViewById(R.id.txt_nameUser);
         final EditText name = findViewById(R.id.txt_name);
-        final EditText lastname = findViewById(R.id.txt_lastName);
+        final EditText lastName = findViewById(R.id.txt_lastName);
         final EditText email = findViewById(R.id.txt_email);
         final EditText password = findViewById(R.id.txt_password);
         final EditText phone = findViewById(R.id.txt_numberPhone);
@@ -40,7 +39,7 @@ public class Register extends AppCompatActivity {
 
                 String nameUser1 = nameUser.getText().toString();
                 String name1 = name.getText().toString();
-                String lastname1 = lastname.getText().toString();
+                String lastName1 = lastName.getText().toString();
                 String email1 = email.getText().toString();
                 String password1 = password.getText().toString();
                 String phone1 = phone.getText().toString();
@@ -48,28 +47,30 @@ public class Register extends AppCompatActivity {
                 Response.Listener<String> respuesta = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-                        try{
+                        //new JsonParser().parse(response).getAsJsonObject();
+                        try {
                             JSONObject jsonRespuesta = new JSONObject(response);
-                            boolean ok = jsonRespuesta.getBoolean("sucess");
+                            //jsonRespuesta.get("success").getAsBoolean(response);
+                            boolean ok = jsonRespuesta.getBoolean("success");
+
                             if (ok == true) {
                                 Intent i = new Intent (Register.this, Login.class);
                                 Register.this.startActivity(i);
-                                Register.this.finish();;
+                                //Register.this.finish();
                             } else {
                                 AlertDialog.Builder alertar = new AlertDialog.Builder(Register.this);
                                 alertar.setMessage("Fallo en el registro")
                                         .setNegativeButton("Reintentar", null)
-                                            .create()
-                                                .show();
+                                        .create()
+                                        .show();
                             }
-                        } catch(JSONException e) {
-                            e.getMessage();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
                 };
-
-                RegisterRequest r = new RegisterRequest(nameUser1, name1, lastname1, email1, password1, phone1, respuesta);
+                RegisterRequest r = new RegisterRequest(nameUser1, name1, lastName1, email1, password1, phone1, respuesta);
                 RequestQueue cola = Volley.newRequestQueue(Register.this);
             }
         });
