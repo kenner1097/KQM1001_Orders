@@ -72,6 +72,7 @@ public class Register extends AppCompatActivity {
                 };
                 RegisterRequest r = new RegisterRequest(nameUser1, name1, lastName1, email1, password1, phone1, respuesta);
                 RequestQueue cola = Volley.newRequestQueue(Register.this);
+                cola.add(r);
             }
         });
 
