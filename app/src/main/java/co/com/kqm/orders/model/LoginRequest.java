@@ -7,6 +7,10 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Kenner QM
+ * @since 24/04/2019
+ */
 public class LoginRequest extends StringRequest {
 
     private static final String ruta = "http://10.0.2.2/login.php";

@@ -4,13 +4,16 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -44,19 +47,20 @@ public class Register extends AppCompatActivity {
                 String password1 = password.getText().toString();
                 String phone1 = phone.getText().toString();
 
-                Response.Listener<String> respuesta = new Response.Listener<String>() {
+                RegisterRequest r = new RegisterRequest(nameUser1, name1, lastName1, email1, password1, phone1, new Response.Listener<String>() {
+
                     @Override
                     public void onResponse(String response) {
-                        //new JsonParser().parse(response).getAsJsonObject();
+
                         try {
+
                             JSONObject jsonRespuesta = new JSONObject(response);
-                            //jsonRespuesta.get("success").getAsBoolean(response);
                             boolean ok = jsonRespuesta.getBoolean("success");
 
                             if (ok == true) {
-                                Intent i = new Intent (Register.this, Login.class);
+                                Intent i = new Intent(Register.this, Login.class);
                                 Register.this.startActivity(i);
-                                //Register.this.finish();
+                                Register.this.finish();
                             } else {
                                 AlertDialog.Builder alertar = new AlertDialog.Builder(Register.this);
                                 alertar.setMessage("Fallo en el registro")
@@ -69,10 +73,18 @@ public class Register extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                };
-                RegisterRequest r = new RegisterRequest(nameUser1, name1, lastName1, email1, password1, phone1, respuesta);
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(Register.this, error.getMessage(), Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast.show();
+                    }
+                });
+
                 RequestQueue cola = Volley.newRequestQueue(Register.this);
                 cola.add(r);
+
             }
         });
 

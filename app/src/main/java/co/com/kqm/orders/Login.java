@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -65,7 +64,7 @@ public class Login extends AppCompatActivity {
                                 welcome.putExtra("name", name);
 
                                 Login.this.startActivity(welcome);
-                                Login.this.finish();
+                                //Login.this.finish();
 
                             } else {
 
@@ -89,8 +88,10 @@ public class Login extends AppCompatActivity {
                     }
 
                 });
+
                 RequestQueue cola = Volley.newRequestQueue(Login.this);
                 cola.add(r);
+
             }
         });
     }
