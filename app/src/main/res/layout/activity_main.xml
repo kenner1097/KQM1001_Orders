@@ -13,8 +13,8 @@
         android:layout_height="64dp"
         android:text="name"
         tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="282dp" />
-
+        tools:layout_editor_absoluteY="282dp"
+        tools:ignore="MissingConstraints" />
 
 
 </android.support.constraint.ConstraintLayout>

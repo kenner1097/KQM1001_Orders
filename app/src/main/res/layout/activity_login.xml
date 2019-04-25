@@ -7,13 +7,13 @@
     android:orientation="vertical"
     tools:context=".Login">
 
-
     <EditText
         android:id="@+id/id_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
+        android:hint="Nombre de usuario"
         android:layout_marginRight="10dp" />
 
     <EditText
@@ -23,6 +23,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
+        android:hint="contraseña"
         android:inputType="textPassword" />
 
     <Button

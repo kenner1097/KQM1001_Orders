@@ -7,17 +7,21 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Kenner QM
+ * @since 24/04/2019
+ */
 public class LoginRequest extends StringRequest {
 
-    private static final String ruta = "http://orders0101.000webhostapp.com/login.php";
+    private static final String ruta = "http://10.0.2.2/login.php";
     private Map<String, String> parametros;
 
-    public LoginRequest (String user, String password, Response.Listener<String> listener){
+    public LoginRequest (String user, String password, Response.Listener<String> listener, Response.ErrorListener error){
+        super(Request.Method.POST, ruta, listener, error);
 
-        super(Request.Method.POST, ruta, listener, null);
         parametros = new HashMap<>();
-        parametros.put("usuario", user+"");
-        parametros.put("contrasena", password+"");
+        parametros.put("nameUser", user);
+        parametros.put("password", password);
     }
 
     @Override
