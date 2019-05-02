@@ -1,4 +1,4 @@
-package co.com.kqm.orders.model;
+package co.com.kqm.orders.singleton;
 
 import com.android.volley.Request;
 import com.android.volley.Response;

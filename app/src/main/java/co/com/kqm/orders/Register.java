@@ -19,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import co.com.kqm.orders.model.RegisterRequest;
+import co.com.kqm.orders.singleton.RegisterRequest;
 
 public class Register extends AppCompatActivity {
 
@@ -27,6 +27,8 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         final EditText nameUser = findViewById(R.id.txt_nameUser);
         final EditText name = findViewById(R.id.txt_name);
@@ -58,9 +60,9 @@ public class Register extends AppCompatActivity {
                             boolean ok = jsonRespuesta.getBoolean("success");
 
                             if (ok == true) {
-                                Intent i = new Intent(Register.this, Login.class);
-                                Register.this.startActivity(i);
-                                Register.this.finish();
+                                Intent login = new Intent(Register.this, Login.class);
+                                Register.this.startActivity(login);
+
                             } else {
                                 AlertDialog.Builder alertar = new AlertDialog.Builder(Register.this);
                                 alertar.setMessage("Fallo en el registro")

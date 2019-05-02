@@ -18,7 +18,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import co.com.kqm.orders.model.LoginRequest;
+import co.com.kqm.orders.singleton.LoginRequest;
 
 public class Login extends AppCompatActivity {
 
@@ -26,6 +26,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         TextView register = findViewById(R.id.id_register);
         final Button login = findViewById(R.id.button_entryClient);
@@ -58,16 +60,13 @@ public class Login extends AppCompatActivity {
                             boolean ok = jsonrespuesta.getBoolean("success");
 
                             if (ok == true) {
-
                                 String name = jsonrespuesta.getString("name");
                                 Intent welcome = new Intent(Login.this, MainActivity.class);
                                 welcome.putExtra("name", name);
 
                                 Login.this.startActivity(welcome);
-                                //Login.this.finish();
 
                             } else {
-
                                 AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
                                 alerta.setMessage("Fallo en el inicio de sesion")
                                         .setNegativeButton("Reintentar", null)
