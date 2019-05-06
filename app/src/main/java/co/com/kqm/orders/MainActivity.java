@@ -2,6 +2,7 @@ package co.com.kqm.orders;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         listProducts = new ArrayList<>();
         recyclerProduct=findViewById(R.id.Re_firstList);
-        recyclerProduct.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerProduct.setLayoutManager(new LinearLayoutManager(this));
+        recyclerProduct.setLayoutManager(new GridLayoutManager(this,2));
 
         fillProducts();
 

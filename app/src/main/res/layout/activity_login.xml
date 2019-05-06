@@ -1,48 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background_copia"
+    tools:ignore="MissingConstraints"
     tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:alpha="0.2"
+        android:background="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        />
+
+    <TextView
+        android:id="@+id/saludo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="15dp"
+        android:text="Bienvenido a KingStore, inicia sesión para continuar"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="39dp" />
 
     <EditText
         android:id="@+id/id_name"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/saludo"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:alpha="0.5"
+        android:background="@drawable/style"
+        android:gravity="center"
         android:hint="Nombre de usuario"
-        android:layout_marginRight="10dp" />
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/id_password"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/id_name"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
+        android:alpha="0.5"
+        android:background="@drawable/style"
         android:hint="contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_entryClient"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/id_password"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
-        android:text="Ingresar" />
+        android:background="@drawable/button_style"
+        android:text="Ingresar"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/id_register"
-        android:layout_width="match_parent"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="315dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_entryClient"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
         android:text="Registro"
-        android:textSize="18sp" />
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="51dp" />
 
-</LinearLayout>
+</RelativeLayout>
