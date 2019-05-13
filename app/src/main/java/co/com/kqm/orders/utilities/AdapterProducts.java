@@ -24,15 +24,25 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHo
     @NonNull
     @Override
     public ViewHolderProduct onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_products, null, false );
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gird_product, null, false );
+
+        int layout = 1;
+
+        if (Constants.visualizacion == Constants.LIST){
+            layout = R.layout.item_products;
+        } else {
+            layout = R.layout.item_gird_product;
+        }
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(layout, null, false );
         return new ViewHolderProduct(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderProduct viewHolderProduct, int position) {
         viewHolderProduct.nameProduct.setText(listProducts.get(position).getNombre());
-        //viewHolderProduct.infoProduct.setText(listProducts.get(position).getDescripcion());
+        if (Constants.visualizacion == Constants.LIST){
+            viewHolderProduct.infoProduct.setText(listProducts.get(position).getDescripcion());
+        }
         viewHolderProduct.picture.setImageResource(listProducts.get(position).getImagen());
     }
 
@@ -50,7 +60,9 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHo
             super(itemView);
 
             nameProduct = itemView.findViewById(R.id.id_itemName);
-            //infoProduct = itemView.findViewById(R.id.id_itemInfo);
+            if (Constants.visualizacion == Constants.LIST) {
+                infoProduct = itemView.findViewById(R.id.id_itemInfo);
+            }
             picture = itemView.findViewById(R.id.id_image);
         }
 

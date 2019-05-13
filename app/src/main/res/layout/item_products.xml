@@ -31,6 +31,8 @@
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:text="Nombre"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -41,6 +43,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:text="descripcion"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
                 android:textSize="10sp" />
         </LinearLayout>
 

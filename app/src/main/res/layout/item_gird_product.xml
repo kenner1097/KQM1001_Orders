@@ -27,6 +27,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="nombre"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             />
 
     </LinearLayout>

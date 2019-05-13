@@ -1,15 +1,20 @@
 package co.com.kqm.orders;
 
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 
 import co.com.kqm.orders.model.Products;
 import co.com.kqm.orders.utilities.AdapterProducts;
+import co.com.kqm.orders.utilities.Constants;
+
+import static co.com.kqm.orders.utilities.Constants.GRID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,15 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listProducts = new ArrayList<>();
-        recyclerProduct=findViewById(R.id.Re_firstList);
-        //recyclerProduct.setLayoutManager(new LinearLayoutManager(this));
-        recyclerProduct.setLayoutManager(new GridLayoutManager(this,2));
-
-        fillProducts();
-
-        AdapterProducts adapterProducts = new AdapterProducts(listProducts);
-        recyclerProduct.setAdapter(adapterProducts);
+        buildRecycler();
 
     }
 
@@ -92,6 +89,38 @@ public class MainActivity extends AppCompatActivity {
                 "Otros: Sensor de huellas trasero, sensor facial 3D, NFC\n" +
                 "Batería: 3.800 mAh con carga rápida y carga inalámbrica\n" +
                 "\n", R.drawable.mix3_5g));
+
+    }
+
+    public void onClick(View view){
+
+        switch (view.getId()) {
+            case R.id.btn_list:
+                Constants.visualizacion = Constants.LIST;
+                break;
+            case R.id.btn_grid:
+                Constants.visualizacion = GRID;
+                break;
+        }
+
+        buildRecycler();
+    }
+
+    private void buildRecycler() {
+
+        listProducts = new ArrayList<>();
+        recyclerProduct=findViewById(R.id.Re_firstList);
+
+        if (Constants.visualizacion == Constants.LIST){
+            recyclerProduct.setLayoutManager(new LinearLayoutManager(this));
+        } else {
+            recyclerProduct.setLayoutManager(new GridLayoutManager(this,2));
+        }
+
+        fillProducts();
+
+        AdapterProducts adapterProducts = new AdapterProducts(listProducts);
+        recyclerProduct.setAdapter(adapterProducts);
 
     }
 
