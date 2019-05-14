@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import co.com.kqm.orders.R;
 import co.com.kqm.orders.model.Products;
 
-public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHolderProduct> {
+public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHolderProduct> implements View.OnClickListener {
 
+    private View.OnClickListener listener;
     ArrayList<Products> listProducts;
 
     public AdapterProducts(ArrayList<Products> listProducts) {
@@ -34,6 +35,7 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHo
         }
 
         View view = LayoutInflater.from(parent.getContext()).inflate(layout, null, false );
+        view.setOnClickListener(this);
         return new ViewHolderProduct(view);
     }
 
@@ -47,8 +49,19 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.ViewHo
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount(){
         return listProducts.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(listProducts != null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolderProduct extends RecyclerView.ViewHolder {

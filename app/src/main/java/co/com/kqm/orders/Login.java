@@ -2,8 +2,8 @@ package co.com.kqm.orders;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +26,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         TextView register = findViewById(R.id.id_register);
         final Button login = findViewById(R.id.button_entryClient);
@@ -35,13 +33,11 @@ public class Login extends AppCompatActivity {
         final EditText password = findViewById(R.id.id_password);
 
         //Loading the view when the user select register now
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent register = new Intent(Login.this, Register.class);
                 Login.this.startActivity(register);
-                finish();
             }
         });
 
@@ -56,14 +52,13 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+
                             JSONObject jsonrespuesta = new JSONObject(response);
                             boolean ok = jsonrespuesta.getBoolean("success");
 
                             if (ok == true) {
-                                String name = jsonrespuesta.getString("name");
-                                Intent welcome = new Intent(Login.this, MainActivity.class);
-                                welcome.putExtra("name", name);
 
+                                Intent welcome = new Intent(Login.this, MainActivity.class);
                                 Login.this.startActivity(welcome);
 
                             } else {
@@ -78,9 +73,9 @@ public class Login extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }, new Response.ErrorListener(){
+                }, new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error){
+                    public void onErrorResponse(VolleyError error) {
                         Toast toast = Toast.makeText(Login.this, error.getMessage(), Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast.show();

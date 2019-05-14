@@ -1,7 +1,7 @@
 package co.com.kqm.orders;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buildRecycler();
-
     }
 
     public void fillProducts() {
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void buildRecycler() {
-
+        final String[] datos = new String[1];
         listProducts = new ArrayList<>();
         recyclerProduct=findViewById(R.id.Re_firstList);
 
@@ -119,9 +118,35 @@ public class MainActivity extends AppCompatActivity {
 
         fillProducts();
 
-        AdapterProducts adapterProducts = new AdapterProducts(listProducts);
-        recyclerProduct.setAdapter(adapterProducts);
+        final AdapterProducts adapterProducts = new AdapterProducts(listProducts);
 
+        adapterProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (datos[0] = listProducts.get(recyclerProduct.getChildAdapterPosition(v)).getNombre()) {
+
+                    case "Xiaomi Mix 3 5g":
+                        Intent mi3 = new Intent(MainActivity.this, ProductMi3.class);
+                        MainActivity.this.startActivity(mi3);
+                        break;
+                    case "Xiaomi 8 pro":
+                        Intent mi8 = new Intent(MainActivity.this, ProductMi8.class);
+                        MainActivity.this.startActivity(mi8);
+                        break;
+                    case "Xiaomi 9 se":
+                        Intent mi9se = new Intent(MainActivity.this, ProductMi9se.class);
+                        MainActivity.this.startActivity(mi9se);
+                        break;
+                    case "Xiaomi 9":
+                        Intent mi9 = new Intent(MainActivity.this, ProductMi9.class);
+                        MainActivity.this.startActivity(mi9);
+                        break;
+                }
+
+            }
+        });
+
+        recyclerProduct.setAdapter(adapterProducts);
     }
 
 }

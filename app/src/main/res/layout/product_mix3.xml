@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:paddingLeft="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/background_copia"
+    tools:context=".ProductMi3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/id_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/mix3_5g"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/id_itemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Xiaomi Mi MIX 3"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/id_itemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Pantalla: AMOLED de 6,39 pulgadas con resolución de 1080 x 2340 píxeles y ratio 19,5:9 *Procesador: Qualcomm Snapdragon 855 de ocho núcleos *RAM: 6/8/10 GB *Almacenamiento Interno: 64/128 GB/256/512 GB *Gráfica: Adreno 630 *Cámara trasera: 12 Mp + 12 Mp con Apertura f/1.8 + f/2.4. *Cámara delantera: 24 + 2 MP *Conectividad: 5G, Dual SIM, Bluetooth 5.0, WiFi 802.11a/b/g/n/ac, USB Tipo-C *Otros: Sensor de huellas trasero, sensor facial 3D, NFC *Batería: 3.800 mAh con carga rápida y carga inalámbrica"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="inherit"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

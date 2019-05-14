@@ -12,11 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Register" />
+        <activity android:name=".ProductMi3"/>
+        <activity android:name=".ProductMi8"/>
+        <activity android:name=".ProductMi9se"/>
+        <activity android:name=".ProductMi9"/>
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

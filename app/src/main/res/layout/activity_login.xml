@@ -104,4 +104,15 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="51dp" />
 
+<!--    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_below="@+id/button_entryClient"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:max="100"
+        android:visibility="invisible"/>-->
+
 </RelativeLayout>
